@@ -1,6 +1,7 @@
-from api.server import app
+from fastapi import FastAPI
 
-# Optional - Entry point when deploying with render
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("api.server:app", host="0.0.0.0", port=10000)
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "Welcome to Gmail Cleaner Pro API"}
